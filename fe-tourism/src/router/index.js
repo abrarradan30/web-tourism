@@ -1,33 +1,76 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import About from '../views/AboutView.vue'
-import contact from '../views/contact.vue'
-import halaman2 from '../views/halaman2.vue'
+import axios from 'axios'
+
+import DefaultLayout from '@/views/layouts/DefaultLayout.vue'
+import GuestLayout from '@/views/layouts/GuestLayout.vue'
+import Dashboard from '@/views/Dashboard.vue'
+import Login from '@/views/Login.vue'
+import Cookies from 'js-cookie'
+
+const routes = [
+  {
+    path: '/',
+    component: DefaultLayout,
+    children: [
+      {
+        path: '',
+        name: 'Dashboard',
+        component: Dashboard,
+        meta: { requiresAuth: true },
+      },
+    ],
+  },
+  {
+    path: '/login',
+    component: GuestLayout,
+    children: [
+      {
+        path: '',
+        name: 'Login',
+        component: Login,
+      },
+    ],
+  },
+]
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-    {
-      path: '/',
-      name: 'home',
-      component: HomeView,
-    },
-    {
-      path: '/about',
-      name: 'about',
-      component: About,
-    },
-    {
-      path: '/contact',
-      name: 'contact',
-      component: contact,
-    },
-    {
-      path: '/halaman2',
-      name: 'halaman2',
-      component: halaman2,
-    },
-  ],
+  history: createWebHistory(),
+  routes,
+})
+
+router.beforeEach(async (to, from, next) => {
+  const checkByAPI = false // mau menggunakan pengecekan me atau tidak
+
+  if (checkByAPI) {
+    // === OPSI 1: Cek user by api biasanya /me ===
+    try {
+      const res = await axios.get('/api/me', { withCredentials: true })
+      const isAuthenticated = !!res.data.user
+
+      if (to.meta.requiresAuth && !isAuthenticated) {
+        next({ name: 'Login' })
+      } else if (to.name === 'Login' && isAuthenticated) {
+        next({ name: 'Dashboard' })
+      } else {
+        next()
+      }
+    } catch (error) {
+      if (to.meta.requiresAuth) next({ name: 'Login' })
+      else next()
+    }
+  } else {
+    // === OPSI 2: Cek dari session/cookie langsung ===
+    const token = Cookies.get('token')
+    const isAuthenticated = !!token
+
+    if (to.meta.requiresAuth && !isAuthenticated) {
+      next({ name: 'Login' })
+    } else if (to.name === 'Login' && isAuthenticated) {
+      next({ name: 'Dashboard' })
+    } else {
+      next()
+    }
+  }
 })
 
 export default router
