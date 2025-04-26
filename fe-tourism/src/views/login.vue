@@ -1,120 +1,116 @@
 <template>
-  <div
-    class="min-h-screen flex items-center justify-center bg-gradient-to-r from-gray-200 to-indigo-100"
-  >
-    <div :class="['container', { active: isRegister }]">
-      <!-- Sign Up Form -->
-      <div class="form-container sign-up">
-        <form @submit.prevent="register">
-          <h1>Create Account</h1>
-          <div class="social-icons">
-            <a
-              href="#"
-              class="border border-gray-300 rounded-[20%] w-10 h-10 flex items-center justify-center"
-            >
-              <i class="fa-brands fa-google-plus-g"></i>
-            </a>
-            <a
-              href="#"
-              class="border border-gray-300 rounded-[20%] w-10 h-10 flex items-center justify-center"
-            >
-              <i class="fa-brands fa-facebook-f"></i>
-            </a>
-            <a
-              href="#"
-              class="border border-gray-300 rounded-[20%] w-10 h-10 flex items-center justify-center"
-            >
-              <i class="fa-brands fa-github"></i>
-            </a>
-            <a
-              href="#"
-              class="border border-gray-300 rounded-[20%] w-10 h-10 flex items-center justify-center"
-            >
-              <i class="fa-brands fa-linkedin-in"></i>
-            </a>
-          </div>
-          <span>or use your email for registration</span>
-          <input
-            v-model="registerForm.name"
-            type="text"
-            placeholder="Name"
-            class="w-full px-4 py-2 rounded-lg bg-white text-gray-800 placeholder-gray-500 ring-1 ring-gray-300 focus:ring-2 focus:ring-indigo-400 focus:outline-none transition"
-          />
-          <input
-            v-model="registerForm.email"
-            placeholder="Email"
-            class="w-full px-4 py-2 rounded-lg bg-white text-gray-800 placeholder-gray-500 ring-1 ring-gray-300 focus:ring-2 focus:ring-indigo-400 focus:outline-none transition"
-          />
-          <input
-            v-model="registerForm.password"
-            type="password"
-            placeholder="Password"
-            class="w-full px-4 py-2 rounded-lg bg-white text-gray-800 placeholder-gray-500 ring-1 ring-gray-300 focus:ring-2 focus:ring-indigo-400 focus:outline-none transition"
-          />
-          <button type="submit">Sign Up</button>
-        </form>
-      </div>
+  <div :class="['container', { active: isRegister }]">
+    <!-- Sign Up Form -->
+    <div class="form-container sign-up">
+      <form @submit.prevent="register">
+        <h1>Create Account</h1>
+        <div class="social-icons">
+          <a
+            href="#"
+            class="border border-gray-300 rounded-[20%] w-10 h-10 flex items-center justify-center"
+          >
+            <i class="fa-brands fa-google-plus-g"></i>
+          </a>
+          <a
+            href="#"
+            class="border border-gray-300 rounded-[20%] w-10 h-10 flex items-center justify-center"
+          >
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a
+            href="#"
+            class="border border-gray-300 rounded-[20%] w-10 h-10 flex items-center justify-center"
+          >
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a
+            href="#"
+            class="border border-gray-300 rounded-[20%] w-10 h-10 flex items-center justify-center"
+          >
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+        </div>
+        <span>or use your email for registration</span>
+        <input
+          v-model="registerForm.name"
+          type="text"
+          placeholder="Name"
+          class="w-full px-4 py-2 rounded-lg bg-white text-gray-800 placeholder-gray-500 ring-1 ring-gray-300 focus:ring-2 focus:ring-indigo-400 focus:outline-none transition"
+        />
+        <input
+          v-model="registerForm.email"
+          placeholder="Email"
+          class="w-full px-4 py-2 rounded-lg bg-white text-gray-800 placeholder-gray-500 ring-1 ring-gray-300 focus:ring-2 focus:ring-indigo-400 focus:outline-none transition"
+        />
+        <input
+          v-model="registerForm.password"
+          type="password"
+          placeholder="Password"
+          class="w-full px-4 py-2 rounded-lg bg-white text-gray-800 placeholder-gray-500 ring-1 ring-gray-300 focus:ring-2 focus:ring-indigo-400 focus:outline-none transition"
+        />
+        <button type="submit">Sign Up</button>
+      </form>
+    </div>
 
-      <!-- Sign In Form -->
-      <div class="form-container sign-in">
-        <form @submit.prevent="login">
-          <h1>Sign In</h1>
-          <div class="social-icons">
-            <a
-              href="#"
-              class="border border-gray-300 rounded-[20%] w-10 h-10 flex items-center justify-center"
-            >
-              <i class="fa-brands fa-google-plus-g"></i>
-            </a>
-            <a
-              href="#"
-              class="border border-gray-300 rounded-[20%] w-10 h-10 flex items-center justify-center"
-            >
-              <i class="fa-brands fa-facebook-f"></i>
-            </a>
-            <a
-              href="#"
-              class="border border-gray-300 rounded-[20%] w-10 h-10 flex items-center justify-center"
-            >
-              <i class="fa-brands fa-github"></i>
-            </a>
-            <a
-              href="#"
-              class="border border-gray-300 rounded-[20%] w-10 h-10 flex items-center justify-center"
-            >
-              <i class="fa-brands fa-linkedin-in"></i>
-            </a>
-          </div>
-          <span>or use your email password</span>
-          <input
-            v-model="email"
-            placeholder="Email"
-            class="w-full px-4 py-2 rounded-lg bg-white text-gray-800 placeholder-gray-500 ring-1 ring-gray-300 focus:ring-2 focus:ring-indigo-400 focus:outline-none transition"
-          />
-          <input
-            v-model="password"
-            type="password"
-            placeholder="Password"
-            class="w-full px-4 py-2 rounded-lg bg-white text-gray-800 placeholder-gray-500 ring-1 ring-gray-300 focus:ring-2 focus:ring-indigo-400 focus:outline-none transition"
-          />
-          <a href="#">Forgot your password?</a>
-          <button type="submit">Sign In</button>
-        </form>
-      </div>
+    <!-- Sign In Form -->
+    <div class="form-container sign-in">
+      <form @submit.prevent="login">
+        <h1>Sign In</h1>
+        <div class="social-icons">
+          <a
+            href="#"
+            class="border border-gray-300 rounded-[20%] w-10 h-10 flex items-center justify-center"
+          >
+            <i class="fa-brands fa-google-plus-g"></i>
+          </a>
+          <a
+            href="#"
+            class="border border-gray-300 rounded-[20%] w-10 h-10 flex items-center justify-center"
+          >
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a
+            href="#"
+            class="border border-gray-300 rounded-[20%] w-10 h-10 flex items-center justify-center"
+          >
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a
+            href="#"
+            class="border border-gray-300 rounded-[20%] w-10 h-10 flex items-center justify-center"
+          >
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+        </div>
+        <span>or use your email password</span>
+        <input
+          v-model="email"
+          placeholder="Email"
+          class="w-full px-4 py-2 rounded-lg bg-white text-gray-800 placeholder-gray-500 ring-1 ring-gray-300 focus:ring-2 focus:ring-indigo-400 focus:outline-none transition"
+        />
+        <input
+          v-model="password"
+          type="password"
+          placeholder="Password"
+          class="w-full px-4 py-2 rounded-lg bg-white text-gray-800 placeholder-gray-500 ring-1 ring-gray-300 focus:ring-2 focus:ring-indigo-400 focus:outline-none transition"
+        />
+        <a href="#">Forgot your password?</a>
+        <button type="submit">Sign In</button>
+      </form>
+    </div>
 
-      <!-- Toggle Panels -->
-      <div class="toggle-container">
-        <div class="toggle">
-          <div class="toggle-panel toggle-left">
-            <h1>Welcome Back!</h1>
-            <p>Enter your personal details to use all of site features</p>
-            <button v-show="isRegister" @click="isRegister = false">Sign In</button>
-          </div>
-          <div class="toggle-panel toggle-right">
-            <h1>Hello, Friend!</h1>
-            <p>Register with your personal details to use all of site features</p>
-            <button v-show="!isRegister" @click="isRegister = true">Sign Up</button>
-          </div>
+    <!-- Toggle Panels -->
+    <div class="toggle-container">
+      <div class="toggle">
+        <div class="toggle-panel toggle-left">
+          <h1>Welcome Back!</h1>
+          <p>Enter your personal details to use all of site features</p>
+          <button v-show="isRegister" @click="isRegister = false">Sign In</button>
+        </div>
+        <div class="toggle-panel toggle-right">
+          <h1>Hello, Friend!</h1>
+          <p>Register with your personal details to use all of site features</p>
+          <button v-show="!isRegister" @click="isRegister = true">Sign Up</button>
         </div>
       </div>
     </div>
@@ -151,7 +147,7 @@ const login = async () => {
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
 
       // redirect ke dashboard
-      router.push('/dashboard')
+      router.push('/')
     }
   } catch (error) {
     console.error('Login gagal:', error)
@@ -160,6 +156,7 @@ const login = async () => {
 
 const register = () => {
   console.log('Register with:', registerForm)
+  // Implement register logic here
 }
 </script>
 
