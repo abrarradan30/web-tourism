@@ -3,7 +3,7 @@ import HomeView from '../views/Home.vue'
 import Top_Destination from '../views/Top_Destination.vue'
 import Travel_stories from '../views/Travel_stories.vue'
 import Help_center from '../views/Help_center.vue'
-import Login from '../views/login.vue'
+import Login from '../views/Login.vue'
 import Dashboard from '../views/admin/Dashboard.vue'
 import halaman1 from '@/views/admin/halaman1.vue'
 import halaman2 from '@/views/admin/halaman2.vue'
@@ -59,6 +59,7 @@ const router = createRouter({
       meta: { hideLayout: true },
     },
   ],
+
 })
 
 export default router
