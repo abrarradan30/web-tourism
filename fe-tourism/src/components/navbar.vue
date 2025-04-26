@@ -2,18 +2,107 @@
 import { RouterLink } from 'vue-router'
 </script>
 
+<script>
+import { ref } from 'vue'
+
+export default {
+  data() {
+    return {
+      isScrolled: false,
+    }
+  },
+  mounted() {
+    window.addEventListener('scroll', this.handleScroll)
+  },
+  beforeUnmount() {
+    window.removeEventListener('scroll', this.handleScroll)
+  },
+  methods: {
+    handleScroll() {
+      this.isScrolled = window.scrollY > 50
+    },
+  },
+}
+
+const isScrolled = ref(false)
+const isSearchOpen = ref(false)
+const isMobileMenuOpen = ref(false)
+
+const toggleSearch = () => {
+  isSearchOpen.value = !isSearchOpen.value
+}
+
+const toggleMobileMenu = () => {
+  isMobileMenuOpen.value = !isMobileMenuOpen.value
+}
+
+// Optional: logic untuk mendeteksi scroll dan update isScrolled
+window.addEventListener('scroll', () => {
+  isScrolled.value = window.scrollY > 50
+})
+</script>
+
 <template>
-  <!-- Navigation -->
-  <nav class="relative z-10 px-6 py-4 flex justify-between items-center bg-black">
-    <div class="text-white text-2xl font-bold">Indonesia.Travel</div>
-    <div class="hidden md:flex space-x-6">
-      <RouterLink to="/" class="text-white hover:text-amber-300">Home</RouterLink>
-      <RouterLink to="/about" class="text-white hover:text-amber-300">About</RouterLink>
-      <RouterLink to="/contact" class="text-white hover:text-amber-300">Contact</RouterLink>
-      <RouterLink to="/halaman2" class="text-white hover:text-amber-300">halaman2</RouterLink>
+  <nav
+    :class="[
+      'fixed top-0 left-0 w-full z-50 px-6 py-4 flex justify-between items-center transition duration-300',
+      isScrolled ? 'bg-white shadow-md' : 'bg-transparent',
+    ]"
+  >
+    <div :class="isScrolled ? 'text-gray-900' : 'text-white'" class="text-2xl font-bold">
+      Indonesia.Travel
     </div>
+
+    <div class="hidden md:flex space-x-6">
+      <RouterLink
+        to="/"
+        :class="[
+          isScrolled ? 'text-gray-800 hover:text-amber-500' : 'text-white hover:text-amber-300',
+          'font-bold',
+        ]"
+      >
+        Home
+      </RouterLink>
+      <RouterLink
+        to="/Top"
+        :class="[
+          isScrolled ? 'text-gray-800 hover:text-amber-500' : 'text-white hover:text-amber-300',
+          'font-bold',
+        ]"
+      >
+        Top Destination
+      </RouterLink>
+      <RouterLink
+        to="/Stories"
+        :class="[
+          isScrolled ? 'text-gray-800 hover:text-amber-500' : 'text-white hover:text-amber-300',
+          'font-bold',
+        ]"
+      >
+        Travel Stories
+      </RouterLink>
+      <RouterLink
+        to="/Help"
+        :class="[
+          isScrolled ? 'text-gray-800 hover:text-amber-500' : 'text-white hover:text-amber-300',
+          'font-bold',
+        ]"
+      >
+        Help Center
+      </RouterLink>
+      <RouterLink
+        to="/Login"
+        :class="[
+          isScrolled ? 'text-gray-800 hover:text-amber-500' : 'text-white hover:text-amber-300',
+          'font-bold',
+        ]"
+      >
+      </RouterLink>
+    </div>
+
     <div class="flex items-center space-x-4">
-      <button class="text-white">
+      <!-- Tombol Search -->
+      <button @click="toggleSearch" :class="[isScrolled ? 'text-gray-800' : 'text-white']">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="h-6 w-6"
@@ -29,7 +118,12 @@ import { RouterLink } from 'vue-router'
           />
         </svg>
       </button>
-      <button class="text-white">
+
+      <!-- Tombol Toggle Menu - Hanya di Mobile -->
+      <button
+        @click="toggleMobileMenu"
+        :class="[isScrolled ? 'text-gray-800' : 'text-white', 'md:hidden']"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="h-6 w-6"
