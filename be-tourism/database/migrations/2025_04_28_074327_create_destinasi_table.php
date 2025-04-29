@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('lokasi', 255);
             $table->string('gambar', 255)->nullable();
             $table->string('kategori', 100);
-            $table->string('status');
+            $table->boolean('status')->default(1);
             $table->timestamps();
         });
     }

@@ -46,29 +46,32 @@ class DestinasiController extends Controller
     }
 
     public function update(Request $request, $id)
-    {
-        $request->validate([
-            'nama' => 'sometimes|required|max:255',
-            'deskripsi' => 'sometimes|required',
-            'lokasi' => 'sometimes|required|max:255',
-            'gambar' => 'nullable|string',
-            'kategori' => 'nullable|string|max:100',
-            'status' => 'required|boolean',
-        ]);
+{
+    $request->validate([
+        'nama' => 'sometimes|required|max:255',
+        'deskripsi' => 'sometimes|required',
+        'lokasi' => 'sometimes|required|max:255',
+        'gambar' => 'nullable|string',
+        'kategori' => 'nullable|string|max:100',
+        'status' => 'required|boolean',
+    ]);
 
-        $destinasi = Destinasi::find($id);
+    $destinasi = Destinasi::find($id);
 
-        if (!$destinasi) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Data Tidak Ditemukan',
-            ], 404);
-        }
-
-        $destinasi->update($request->all());
-
-        return new DestinasiResource(true, 'Data Destinasi Berhasil Diupdate!', $destinasi);
+    if (!$destinasi) {
+        return response()->json([
+            'success' => false,
+            'message' => 'Data Tidak Ditemukan',
+        ], 404);
     }
+
+    $destinasi->update($request->only([
+        'nama', 'deskripsi', 'lokasi', 'gambar', 'kategori', 'status'
+    ]));
+
+    return new DestinasiResource(true, 'Data Destinasi Berhasil Diupdate!', $destinasi);
+}
+
 
     public function destroy($id)
     {
