@@ -25,7 +25,6 @@
           @input="handleInput(index, $event)"
           @keydown.backspace="handleBackspace(index, $event)"
         />
-
         <!-- Tombol toggle show/hide -->
         <button
           type="button"
@@ -35,7 +34,6 @@
           <i :class="showPin ? 'ri-eye-off-line' : 'ri-eye-line'" class="text-2xl"></i>
         </button>
       </form>
-
       <button
         @click="login"
         class="w-full bg-indigo-600 text-white text-lg font-semibold py-3 rounded-xl hover:bg-indigo-700 transition duration-200 shadow-md"

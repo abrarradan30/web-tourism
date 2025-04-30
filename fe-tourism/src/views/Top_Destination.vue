@@ -62,6 +62,64 @@
         </div>
       </div>
     </div>
+
+    <!-- Pantai Goa Cina -->
+  <div class="bg-gray-100 rounded-md overflow-hidden shadow-md p-4 max-w-sm mx-auto">
+    <img
+      class="w-full h-64 object-cover rounded-md transform transition-transform duration-300 hover:scale-105"
+      src="https://media.istockphoto.com/id/1222116464/photo/batu-leter-tropical-beach-in-east-java-indonesia.jpg?s=612x612&w=0&k=20&c=6sRUgtVYn-F54DAurVZ73lmVl3FJwFM1nfJckZYdiYQ="
+      alt="Museum Tubuh"
+    />
+    <div class="mt-4">
+      <h2 class="text-lg font-serif font-semibold text-black">Pantai Goa Cina</h2>
+      <div class="flex items-center mt-1">
+        <!-- Bintang Rating -->
+        <span class="text-yellow-500">&#9733;</span>
+        <span class="text-yellow-500">&#9733;</span>
+        <span class="text-yellow-500">&#9733;</span>
+        <span class="text-yellow-500">&#9733;</span>
+        <span class="text-gray-300">&#9733;</span> <!-- Bintang kosong -->
+        <span class="ml-2 text-sm text-gray-600">(4.5)</span> <!-- Rating text -->
+      </div>
+      <p class="text-sm text-gray-600 mt-1">
+        Pantai tenang dengan arus yang kuat, dengan bebatuan kapur, sawah & gua legendaris.
+      </p>
+      <button
+        class="mt-4 px-4 py-2 bg-amber-500 text-white text-xs font-semibold rounded-md uppercase tracking-wide hover:bg-amber-600"
+      >
+        REVIEW
+      </button>
+    </div>
+  </div>
+
+  <!-- Pantai Sendiki -->
+  <div class="bg-gray-100 rounded-md overflow-hidden shadow-md p-4 max-w-sm mx-auto">
+    <img
+      class="w-full h-64 object-cover rounded-md transform transition-transform duration-300 hover:scale-105"
+      src="https://th.bing.com/th/id/R.199f09f90b1b6b04b99ae83cde514420?rik=fikujcikF3ZSqw&riu=http%3a%2f%2f3.bp.blogspot.com%2f-s7kPwyG7E-A%2fVpsE-oIAlMI%2fAAAAAAAAMCA%2fBBzC3Fjy5M4%2fs1600%2fP_20151230_085700.jpg&ehk=EIi2p2YmT8xEIqYXxjVNDk7Qf%2bA9BWu%2fzEAe8OpPAcE%3d&risl=&pid=ImgRaw&r=0"
+      alt="Eco Green Park"
+    />
+    <div class="mt-4">
+      <h2 class="text-lg font-serif font-semibold text-black">Pantai Sendiki</h2>
+      <div class="flex items-center mt-1">
+        <!-- Bintang Rating -->
+        <span class="text-yellow-500">&#9733;</span>
+        <span class="text-yellow-500">&#9733;</span>
+        <span class="text-yellow-500">&#9733;</span>
+        <span class="text-yellow-500">&#9733;</span>
+        <span class="text-gray-300">&#9733;</span> <!-- Bintang kosong -->
+        <span class="ml-2 text-sm text-gray-600">(4.6)</span> <!-- Rating text -->
+      </div>
+      <p class="text-sm text-gray-600 mt-1">
+        Pantai berpasir & berlatar belakang hutan lebat dengan tempat kemah, & pemandangan matahari terbenam.
+      </p>
+      <button
+        class="mt-4 px-4 py-2 bg-amber-500 text-white text-xs font-semibold rounded-md uppercase tracking-wide hover:bg-amber-600"
+      >
+        REVIEW
+      </button>
+    </div>
+  </div>
   </section>
 </template>
 
