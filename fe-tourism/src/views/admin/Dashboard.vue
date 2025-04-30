@@ -6,7 +6,7 @@ const router = useRouter()
 
 function handleLogout() {
   Cookies.remove('token')
-  router.push('/login')
+  router.push('/')
 }
 </script>
 
@@ -15,7 +15,7 @@ function handleLogout() {
     <div class="w-64 min-h-screen h-full bg-gray-800 text-white p-4 flex flex-col justify-between">
       <div>
         <h1 class="text-2xl font-bold mb-6">Sidebar</h1>
-        <router-link to="/" class="block py-2 px-4 hover:bg-gray-700 rounded"
+        <router-link to="/dashboard" class="block py-2 px-4 hover:bg-gray-700 rounded"
           >Dashboard</router-link
         >
         <router-link to="/halaman1" class="block py-2 px-4 hover:bg-gray-700 rounded"
@@ -34,7 +34,7 @@ function handleLogout() {
     </div>
     <div class="flex-1">
       <main class="p-4">
-        <router-view />
+        <h1>Hallo Admin !!</h1>
       </main>
     </div>
   </div>

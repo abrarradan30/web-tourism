@@ -8,7 +8,6 @@ import Dashboard from '../views/admin/Dashboard.vue'
 import halaman1 from '@/views/admin/halaman1.vue'
 import halaman2 from '@/views/admin/halaman2.vue'
 import Cookies from 'js-cookie'
-import axios from 'axios'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -43,23 +42,43 @@ const router = createRouter({
       path: '/dashboard',
       name: 'dashboard',
       component: Dashboard,
-      meta: { requiresAuth: true },
-      meta: { hideLayout: true },
+      meta: { requiresAuth: true, hideLayout: true },
     },
     {
       path: '/halaman1',
       name: 'halaman1',
       component: halaman1,
-      meta: { hideLayout: true },
+      meta: { requiresAuth: true, hideLayout: true },
     },
     {
       path: '/halaman2',
       name: 'halaman2',
       component: halaman2,
-      meta: { hideLayout: true },
+      meta: { requiresAuth: true, hideLayout: true },
     },
   ],
+})
 
+router.beforeEach((to, from, next) => {
+  const isLoggedIn = !!Cookies.get('admin_token')
+
+  // Jika route membutuhkan auth dan user belum login
+  if (to.meta.requiresAuth && !isLoggedIn) {
+    // Redirect ke login dengan menyimpan route tujuan
+    next({
+      name: 'Login',
+      query: { redirect: to.fullPath },
+      state: { showWarning: true }, // Untuk menampilkan pesan warning
+    })
+  }
+  // Jika mencoba akses login padahal sudah login
+  else if (to.name === 'Dashboard' && isLoggedIn) {
+    next({ name: 'Dashboard' }) // Redirect ke dashboard
+  }
+  // Jika tidak ada masalah
+  else {
+    next()
+  }
 })
 
 export default router

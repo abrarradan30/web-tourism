@@ -1,7 +1,9 @@
-<script setup></script>
+<script setup>
+import { RouterLink, useRoute } from 'vue-router'
+</script>
 
 <template>
-  <div class="min-h-screen bg-white">
+  <div class="min-h-screen bg-white scroll-smooth all">
     <!-- Hero Section -->
     <div class="relative h-screen">
       <!-- Background Image with overlay -->
@@ -24,7 +26,12 @@
         <div
           class="relative z-10 h-full flex flex-col justify-center items-center text-center px-4"
         >
-          <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">WONDERFUL INDONESIA</h1>
+          <h1
+            class="text-4xl md:text-6xl font-bold text-white mb-6 shiny-text"
+            data-text="WONDERFUL EAST JAVA"
+          >
+            WONDERFUL EAST JAVA
+          </h1>
           <p class="text-xl text-white max-w-2xl mb-8">
             Discover the enchanting beauty of Indonesia's diverse cultures, breathtaking landscapes,
             and pristine beaches.
@@ -33,49 +40,16 @@
             <button
               class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-8 rounded-full transition duration-300"
             >
-              Explore Destinations
+              <RouterLink to="/Top">Explore Destination</RouterLink>
             </button>
             <button
               class="bg-transparent border-2 border-white hover:bg-white/20 text-white font-bold py-3 px-8 rounded-full transition duration-300"
             >
-              Watch Video
+              <a href="#youtube" class="scroll-smooth">Watch Video</a>
             </button>
           </div>
         </div>
       </Transition>
-      <!-- Search Bar -->
-      <div
-        class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 z-10 w-full max-w-4xl px-4"
-      >
-        <div class="bg-white rounded-lg shadow-xl p-4">
-          <div class="flex flex-col md:flex-row gap-4">
-            <div class="flex-1">
-              <label class="block text-gray-700 text-sm font-bold mb-1">Destination</label>
-              <input
-                type="text"
-                placeholder="Where to?"
-                class="w-full p-3 border border-gray-300 rounded-lg"
-              />
-            </div>
-            <div class="flex-1">
-              <label class="block text-gray-700 text-sm font-bold mb-1">Experience</label>
-              <select class="w-full p-3 border border-gray-300 rounded-lg">
-                <option>All Experiences</option>
-                <option>Beaches</option>
-                <option>Culture</option>
-                <option>Nature</option>
-              </select>
-            </div>
-            <div class="flex items-end">
-              <button
-                class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-6 rounded-lg w-full h-[50px]"
-              >
-                Search
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
 
     <!-- Main Content -->
@@ -119,14 +93,14 @@
         </div>
       </section>
 
-      <section class="mb-20">
+      <section class="mb-20" id="youtube">
         <div class="bg-gray-100 rounded-xl overflow-hidden">
           <div class="flex flex-col lg:flex-row">
             <div class="lg:w-2/3">
               <div class="relative pt-[56.25%]">
                 <iframe
                   class="absolute top-0 left-0 w-full h-full"
-                  src="https://www.youtube.com/embed/rBoYIDWghZc?si=zRNVXCC2zp6_E3tg"
+                  src="https://www.youtube.com/embed/ruKqXQ2KtH4?si=Cbnh23wBjAjCQ4LX"
                   title="YouTube video player"
                   frameborder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -170,27 +144,6 @@
         </div>
       </section>
     </div>
-
-    <section class="bg-gray-100 py-16">
-      <div class="container mx-auto px-4 text-center">
-        <h2 class="text-3xl font-bold text-gray-800 mb-4">Get Travel Inspiration</h2>
-        <p class="text-gray-600 max-w-2xl mx-auto mb-8">
-          Subscribe to our newsletter for the latest travel tips, deals, and destination highlights.
-        </p>
-        <div class="max-w-md mx-auto flex">
-          <input
-            type="email"
-            placeholder="Your email address"
-            class="flex-1 p-3 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
-          />
-          <button
-            class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-6 rounded-r-lg"
-          >
-            Subscribe
-          </button>
-        </div>
-      </div>
-    </section>
   </div>
 </template>
 
@@ -202,5 +155,44 @@
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+}
+
+@keyframes shine {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.all {
+  scroll-behavior: smooth;
+}
+
+.shiny-text {
+  position: relative;
+  background: linear-gradient(90deg, #ffffff 0%, #fcd34d 50%, #ffffff 100%);
+  background-size: 200% auto;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: shine 5s linear infinite;
+}
+
+/* Tambahan efek glow menggunakan ::after */
+.shiny-text::after {
+  content: attr(data-text); /* ambil isi teksnya */
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: transparent;
+  background: inherit;
+  background-clip: text;
+  -webkit-background-clip: text;
+
+  filter: blur(8px);
+  opacity: 0.6;
+  z-index: -1;
 }
 </style>

@@ -6,11 +6,10 @@ import { RouterLink } from 'vue-router'
   <footer class="bg-gray-800 text-white py-12">
     <div class="container mx-auto px-4">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-        <div>
-          <h3 class="text-xl font-bold mb-4">Indonesia.Travel</h3>
-          <p class="text-gray-400">
-            The official website of the Ministry of Tourism, Republic of Indonesia.
-          </p>
+        <div class="gap-7">
+          <div class="logo">
+            <img src="../img/white.png" alt="logo" class="h-28 w-auto" />
+          </div>
         </div>
         <div>
           <h4 class="font-bold mb-4">Explore</h4>
