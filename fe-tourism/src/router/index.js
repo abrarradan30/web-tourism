@@ -10,6 +10,20 @@ import halaman2 from '@/views/admin/halaman2.vue'
 import Cookies from 'js-cookie'
 import axios from 'axios'
 
+// Import detail destinasi wisata
+import BromoDetail from '@/views/detail/BromoDetail.vue'
+import IjenDetail from '@/views/detail/IjenDetail.vue'
+import TumpakSewuDetail from '@/views/detail/TumpakSewuDetail.vue'
+import BaluranDetail from '@/views/detail/BaluranDetail.vue'
+import SemeruDetail from '@/views/detail/SemeruDetail.vue'
+import PapumaDetail from '@/views/detail/PapumaDetail.vue'
+import BalekambangDetail from '@/views/detail/BalekambangDetail.vue'
+import PlengkungDetail from '@/views/detail/PlengkungDetail.vue'
+import JatimParkDetail from '@/views/detail/JatimParkDetail.vue'
+import JatimPark2Detail from '@/views/detail/JatimPark2Detail.vue'
+import JatimPark3Detail from '@/views/detail/JatimPark3Detail.vue'
+import SafariDetail from '@/views/detail/SafariDetail.vue'
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -43,8 +57,7 @@ const router = createRouter({
       path: '/dashboard',
       name: 'dashboard',
       component: Dashboard,
-      meta: { requiresAuth: true },
-      meta: { hideLayout: true },
+      meta: { requiresAuth: true, hideLayout: true },
     },
     {
       path: '/halaman1',
@@ -58,8 +71,22 @@ const router = createRouter({
       component: halaman2,
       meta: { hideLayout: true },
     },
-  ],
 
+    // Detail wisata
+    { path: '/bromodetail', name: 'BromoDetail', component: BromoDetail },
+    { path: '/ijendetail', name: 'IjenDetail', component: IjenDetail },
+    { path: '/tumpaksewudetail', name: 'TumpakSewuDetail', component: TumpakSewuDetail },
+    { path: '/balurandetail', name: 'BaluranDetail', component: BaluranDetail },
+    { path: '/semerudetail', name: 'SemeruDetail', component: SemeruDetail },
+    { path: '/papumadetail', name: 'PapumaDetail', component: PapumaDetail },
+    { path: '/balekambangdetail', name: 'BalekambangDetail', component: BalekambangDetail },
+    { path: '/plengkungdetail', name: 'PlengkungDetail', component: PlengkungDetail },
+    { path: '/jatimparkdetail', name: 'JatimParkDetail', component: JatimParkDetail },
+    { path: '/jatimpark2detail', name: 'JatimPark2Detail', component: JatimPark2Detail },
+    { path: '/jatimpark3detail', name: 'JatimPark3Detail', component: JatimPark3Detail },
+    { path: '/safaridetail', name: 'SafariDetail', component: SafariDetail },
+  ],
 })
 
 export default router
+Int8Array
