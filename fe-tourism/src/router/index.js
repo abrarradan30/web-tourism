@@ -9,19 +9,18 @@ import halaman1 from '@/views/admin/halaman1.vue'
 import halaman2 from '@/views/admin/halaman2.vue'
 import Cookies from 'js-cookie'
 
-// Import detail destinasi wisata
-import BromoDetail from '@/views/detail/BromoDetail.vue'
-import IjenDetail from '@/views/detail/IjenDetail.vue'
-import TumpakSewuDetail from '@/views/detail/TumpakSewuDetail.vue'
-import BaluranDetail from '@/views/detail/BaluranDetail.vue'
-import SemeruDetail from '@/views/detail/SemeruDetail.vue'
-import PapumaDetail from '@/views/detail/PapumaDetail.vue'
-import BalekambangDetail from '@/views/detail/BalekambangDetail.vue'
-import PlengkungDetail from '@/views/detail/PlengkungDetail.vue'
-import JatimParkDetail from '@/views/detail/JatimParkDetail.vue'
-import JatimPark2Detail from '@/views/detail/JatimPark2Detail.vue'
-import JatimPark3Detail from '@/views/detail/JatimPark3Detail.vue'
-import SafariDetail from '@/views/detail/SafariDetail.vue'
+import BromoDetail from '../views/detail/BromoDetail.vue'
+import IjenDetail from '../views/detail/IjenDetail.vue'
+import TumpakSewuDetail from '../views/detail/TumpakSewuDetail.vue'
+import BaluranDetail from '../views/detail/BaluranDetail.vue'
+import SemeruDetail from '../views/detail/SemeruDetail.vue'
+import PapumaDetail from '../views/detail/PapumaDetail.vue'
+import BalekambangDetail from '../views/detail/BalekambangDetail.vue'
+import PlengkungDetail from '../views/detail/PlengkungDetail.vue'
+import JatimParkDetail from '../views/detail/JatimParkDetail.vue'
+import JatimPark2Detail from '../views/detail/JatimPark2Detail.vue'
+import JatimPark3Detail from '../views/detail/JatimPark3Detail.vue'
+import SafariDetail from '../views/detail/SafariDetail.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -71,20 +70,75 @@ const router = createRouter({
       meta: { requiresAuth: true, hideLayout: true },
     },
 
-    // Detail wisata
-    { path: '/bromodetail', name: 'BromoDetail', component: BromoDetail },
+    {
+      path: '/bromodetail',
+      name: 'BromoDetail',
+      component: BromoDetail,
+      meta: { hideLayout: true },
+    },
     { path: '/ijendetail', name: 'IjenDetail', component: IjenDetail },
-    { path: '/tumpaksewudetail', name: 'TumpakSewuDetail', component: TumpakSewuDetail },
-    { path: '/balurandetail', name: 'BaluranDetail', component: BaluranDetail },
-    { path: '/semerudetail', name: 'SemeruDetail', component: SemeruDetail },
-    { path: '/papumadetail', name: 'PapumaDetail', component: PapumaDetail },
-    { path: '/balekambangdetail', name: 'BalekambangDetail', component: BalekambangDetail },
-    { path: '/plengkungdetail', name: 'PlengkungDetail', component: PlengkungDetail },
-    { path: '/jatimparkdetail', name: 'JatimParkDetail', component: JatimParkDetail },
-    { path: '/jatimpark2detail', name: 'JatimPark2Detail', component: JatimPark2Detail },
-    { path: '/jatimpark3detail', name: 'JatimPark3Detail', component: JatimPark3Detail },
-    { path: '/safaridetail', name: 'SafariDetail', component: SafariDetail },
-  ],})
+    {
+      path: '/tumpaksewudetail',
+      name: 'TumpakSewuDetail',
+      component: TumpakSewuDetail,
+      meta: { hideLayout: true },
+    },
+    {
+      path: '/balurandetail',
+      name: 'BaluranDetail',
+      component: BaluranDetail,
+      meta: { hideLayout: true },
+    },
+    {
+      path: '/semerudetail',
+      name: 'SemeruDetail',
+      component: SemeruDetail,
+      meta: { hideLayout: true },
+    },
+    {
+      path: '/papumadetail',
+      name: 'PapumaDetail',
+      component: PapumaDetail,
+      meta: { hideLayout: true },
+    },
+    {
+      path: '/balekambangdetail',
+      name: 'BalekambangDetail',
+      component: BalekambangDetail,
+      meta: { hideLayout: true },
+    },
+    {
+      path: '/plengkungdetail',
+      name: 'PlengkungDetail',
+      component: PlengkungDetail,
+      meta: { hideLayout: true },
+    },
+    {
+      path: '/jatimparkdetail',
+      name: 'JatimParkDetail',
+      component: JatimParkDetail,
+      meta: { hideLayout: true },
+    },
+    {
+      path: '/jatimpark2detail',
+      name: 'JatimPark2Detail',
+      component: JatimPark2Detail,
+      meta: { hideLayout: true },
+    },
+    {
+      path: '/jatimpark3detail',
+      name: 'JatimPark3Detail',
+      component: JatimPark3Detail,
+      meta: { hideLayout: true },
+    },
+    {
+      path: '/safaridetail',
+      name: 'SafariDetail',
+      component: SafariDetail,
+      meta: { hideLayout: true },
+    },
+  ],
+})
 
 router.beforeEach((to, from, next) => {
   const isLoggedIn = !!Cookies.get('admin_token')

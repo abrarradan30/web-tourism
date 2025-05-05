@@ -1,0 +1,126 @@
+const images = import.meta.glob('@/img/*.{jpg,png,jpeg}', { eager: true })
+
+const getImage = (filename) =>
+  Object.entries(images).find(([path]) => path.includes(filename))?.[1]?.default || ''
+
+export default [
+  {
+    id: 1,
+    name: 'Gunung Bromo',
+    image: getImage('bromo.jpg'),
+    category: 'Wisata Alam & Petualangan',
+    route: '/bromodetail',
+  },
+  {
+    id: 2,
+    name: 'Kawah Ijen',
+    image: getImage('ijen.jpg'),
+    category: 'Wisata Alam & Petualangan',
+    route: '/ijendetail',
+  },
+  {
+    id: 3,
+    name: 'Air Terjun Tumpak Sewu',
+    image: getImage('tumpak-sewu.jpg'),
+    category: 'Wisata Alam & Petualangan',
+    route: '/TumpakSewuDetail',
+  },
+  {
+    id: 4,
+    name: 'Taman Nasional Baluran',
+    image: getImage('baluran.jpg'),
+    category: 'Wisata Alam & Petualangan',
+    route: '/balurandetail',
+  },
+  {
+    id: 5,
+    name: 'Gunung Semeru',
+    image: getImage('semeru.jpg'),
+    category: 'Wisata Alam & Petualangan',
+    route: '/semerudetail',
+  },
+  {
+    id: 6,
+    name: 'Pantai Papuma',
+    image: getImage('papuma.jpg'),
+    category: 'Wisata Pantai & Laut',
+    route: '/papumadetail',
+  },
+  {
+    id: 7,
+    name: 'Pantai Balekambang',
+    image: getImage('balekambang.jpg'),
+    category: 'Wisata Pantai & Laut',
+    route: '/balekambangdetail',
+  },
+  {
+    id: 8,
+    name: 'Pantai Plengkung',
+    image: getImage('plengkung.jpg'),
+    category: 'Wisata Pantai & Laut',
+    route: '/plengkungdetail',
+  },
+  {
+    id: 9,
+    name: 'Jatim Park 1',
+    image: getImage('jatim-park.jpg'),
+    category: 'Wisata Keluarga & Edukasi',
+    route: '/jatimparkdetail',
+  },
+  {
+    id: 13,
+    name: 'Jatim Park 2',
+    image: getImage('jatim-park-2.jpg'),
+    category: 'Wisata Keluarga & Edukasi',
+    route: '/jatimpark2detail',
+  },
+  {
+    id: 14,
+    name: 'Jatim Park 3',
+    image: getImage('jatim-park-3.jpg'),
+    category: 'Wisata Keluarga & Edukasi',
+    route: '/jatimpark3detail',
+  },
+  {
+    id: 10,
+    name: 'Taman Safari Prigen',
+    image: getImage('safari.jpg'),
+    category: 'Wisata Keluarga & Edukasi',
+    route: '/safaridetail',
+  },
+  {
+    id: 11,
+    name: 'Gunung Jaya Wijaya',
+    image: getImage('semeru.jpg'),
+    category: 'Wisata Alam & Petualangan',
+    route: '/semerudetail',
+  },
+  {
+    id: 12,
+    name: 'Gunung Kembar',
+    image: getImage('semeru.jpg'),
+    category: 'Wisata Alam & Petualangan',
+    route: '/semerudetail',
+  },
+  {
+    id: 13,
+    name: 'Gunung Pundak',
+    image: getImage('semeru.jpg'),
+    category: 'Wisata Alam & Petualangan',
+    route: '/semerudetail',
+  },
+  {
+    id: 14,
+    name: 'Gunung Arjuna',
+    image: getImage('semeru.jpg'),
+    category: 'Wisata Alam & Petualangan',
+    route: '/semerudetail',
+  },
+  {
+    id: 15,
+    name: 'Gunung Kembar V2',
+    image: getImage('semeru.jpg'),
+    category: 'Wisata Alam & Petualangan',
+    route: '/semerudetail',
+  },
+]

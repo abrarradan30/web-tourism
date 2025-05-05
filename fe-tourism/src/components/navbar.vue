@@ -73,14 +73,12 @@ const handleKeydown = (event) => {
     isSearchExpanded.value = false
     showDropdown.value = false
   }
-
 }
 
 onMounted(() => {
   window.addEventListener('scroll', handleScroll)
   document.addEventListener('mousedown', handleClickOutside)
   document.addEventListener('keydown', handleKeydown)
-
 })
 
 onBeforeUnmount(() => {
@@ -89,7 +87,6 @@ onBeforeUnmount(() => {
   document.removeEventListener('keydown', handleKeydown)
 })
 </script>
-
 
 <template>
   <nav
@@ -115,8 +112,10 @@ onBeforeUnmount(() => {
       <RouterLink
         to="/"
         :class="[
-          (isScrolled || isHovered) ? 'text-gray-800 hover:text-amber-500' : 'text-white hover:text-amber-300',
-          'font-bold'
+          isScrolled || isHovered
+            ? 'text-gray-800 hover:text-amber-500'
+            : 'text-white hover:text-amber-300',
+          'font-bold',
         ]"
       >
         Home
@@ -124,8 +123,10 @@ onBeforeUnmount(() => {
       <RouterLink
         to="/Top"
         :class="[
-          (isScrolled || isHovered) ? 'text-gray-800 hover:text-amber-500' : 'text-white hover:text-amber-300',
-          'font-bold'
+          isScrolled || isHovered
+            ? 'text-gray-800 hover:text-amber-500'
+            : 'text-white hover:text-amber-300',
+          'font-bold',
         ]"
       >
         Top Destination
@@ -133,8 +134,10 @@ onBeforeUnmount(() => {
       <RouterLink
         to="/Stories"
         :class="[
-          (isScrolled || isHovered) ? 'text-gray-800 hover:text-amber-500' : 'text-white hover:text-amber-300',
-          'font-bold'
+          isScrolled || isHovered
+            ? 'text-gray-800 hover:text-amber-500'
+            : 'text-white hover:text-amber-300',
+          'font-bold',
         ]"
       >
         Travel Stories

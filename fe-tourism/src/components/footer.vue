@@ -31,9 +31,13 @@ import { RouterLink } from 'vue-router'
         <div>
           <h4 class="font-bold mb-4">About</h4>
           <ul class="space-y-2">
-            <li><a href="#" class="text-gray-400 hover:text-white">About Us</a></li>
+            <li><a href="" class="text-gray-400 hover:text-white">About Us</a></li>
             <li><a href="#" class="text-gray-400 hover:text-white">Contact</a></li>
-            <li><a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
+            <li>
+              <a href="https://polri.go.id/" class="text-gray-400 hover:text-white"
+                >Privacy Policy</a
+              >
+            </li>
             <li><a href="#" class="text-gray-400 hover:text-white">Terms of Use</a></li>
           </ul>
         </div>
