@@ -9,6 +9,5 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 //posts
-Route::apiResource('/user', App\Http\Controllers\Api\UserController::class);
+Route::apiResource('home', App\Http\Controllers\Api\HomeController::class);
 
-Route::apiResource('destinasi', DestinasiController::class);
