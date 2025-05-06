@@ -56,21 +56,13 @@ import { RouterLink, useRoute } from 'vue-router'
     <div class="container mx-auto px-4 py-20 mt-16">
       <section class="mb-20">
         <div class="text-center mb-12">
-          <h2 class="text-3xl font-bold text-gray-800 mb-4">Featured Destinations</h2>
+          <h2 class="text-3xl font-bold text-gray-800 mb-4">Hot Destination</h2>
           <p class="text-gray-600 max-w-2xl mx-auto">
-            Explore Indonesia's most captivating destinations that offer unforgettable experiences.
+            Destinasi dengan kunjungan paling banyak bulan ini dan dengan view yang menarik.
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <DestinationCard
-            v-for="(destination, index) in featuredDestinations"
-            :key="index"
-            :title="destination.title"
-            :description="destination.description"
-            :image="destination.image"
-          />
-        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"></div>
       </section>
 
       <!-- Experiences Section -->
@@ -82,15 +74,7 @@ import { RouterLink, useRoute } from 'vue-router'
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <ExperienceCard
-            v-for="(experience, index) in experiences"
-            :key="index"
-            :title="experience.title"
-            :description="experience.description"
-            :image="experience.image"
-          />
-        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
       </section>
 
       <section class="mb-20" id="youtube">
@@ -133,15 +117,7 @@ import { RouterLink, useRoute } from 'vue-router'
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <GuideCard
-            v-for="(guide, index) in travelGuides"
-            :key="index"
-            :title="guide.title"
-            :description="guide.description"
-            :image="guide.image"
-          />
-        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
       </section>
     </div>
   </div>
